@@ -1,0 +1,393 @@
+ html, body {
+    height: 100%;
+    margin: 0;
+	padding: 0;
+	width: 100%;
+    }
+body{
+    margin: 0;
+    padding: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background-color: #ffffff;
+	overflow-x: hidden;
+		
+	display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/**************************************/
+header {
+    /* Diseño original de 12 columnas */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    font-size: small;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+}
+
+.titulos-centrales {
+    grid-column: 4 / span 6; 
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+header .logoa {
+	
+    margin: 10px;
+    border-radius: 90px;
+    grid-column: 1 / span 3; 
+}
+header .zesta {
+	width: 100%;
+    margin: 0;
+    border-radius: 90px;
+    grid-column: 12 / span 2; 
+}
+/**************************************/
+nav {
+        background-color: #1a838f;
+        padding: 0px 20px;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        margin-bottom: 2px;
+}
+nav p:hover {
+        background-color: #007C91;
+        padding: 10px;
+}
+nav p {
+        color: white;
+        display: inline-block;
+        margin: 0.3242243% 2%;
+        cursor: pointer;
+}
+/**************************************/
+    
+ .bat {
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  height: 340px;             
+  background-color: #ffffff;
+  border-bottom: 1px solid #ccc;
+}
+.bat img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    width: 900px; 
+}
+/**************************************/
+    
+.bi .servicios {
+	  display: grid;
+	  grid-template-columns: repeat(12, 1fr);
+	  background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+	  border: 1px solid #ccc;
+	  margin: 10px 0px;
+	  padding: 10px ;
+	  font-size: 0.95rem;
+	  text-align: center;
+	  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+.bi .servicios > div {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 0px 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bi .servicios > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.bi .servicios img {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.bi .servicios p {
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+/* Distribución en el grid */
+.bi .servicios .pago       { grid-column: 1 / span 3; }
+.bi .servicios .envio      { grid-column: 4 / span 3; }
+.bi .servicios .devolucion { grid-column: 7 / span 3; }
+.bi .servicios .gratis     { grid-column: 10 / span 3; }
+
+/**************************************/
+
+.hiru{
+		margin-top: 50px;
+}
+.hiru h2{
+        text-align: center;
+}
+
+.hiru .kategoriak {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 1fr)); 
+    gap: 20px; 
+    text-align: center;
+    font-size: large;
+    margin-bottom: 30px;
+    justify-content: start; 
+}
+
+
+.hiru .kategoriak .kategoria {
+    background: linear-gradient(145deg, #e0f7fa, #ffffff); 
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.hiru .kategoriak .kategoria:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.hiru .kategoriak .kategoria img {
+    max-width: 100%;
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #00acc1; /* borde estilo agua */
+    margin-bottom: 12px;
+    object-fit: cover;
+}
+
+
+.hiru .kategoriak .kategoria h3 {
+    font-size: 1.1rem;
+    color: #00796b;
+    margin: 5px 0;
+}
+
+
+.hiru .kategoriak .kategoria p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0;
+}
+
+.hiru .kategoriak .kategoria img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+.deskontua{
+	background-color: #28a745;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+	width:100px;
+}
+/*-----------------------------------------*/
+
+.hiruu{
+			margin-top: 120px;
+	
+	}
+.hiruu h2{
+        text-align: center;
+    }
+
+.hiruu .kategoriak {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 1fr)); /* máximo 4 columnas */
+    gap: 20px; /* espacio entre productos */
+    text-align: center;
+    font-size: large;
+    margin-bottom: 30px;
+    justify-content: start; /* para que si hay menos de 4, no se estiren al 100% */
+}
+
+.hiruu .kategoriak .kategoria {
+    background: linear-gradient(145deg, #e0f7fa, #ffffff); /* azul suave estilo agua */
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.hiruu .kategoriak .kategoria:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.hiruu .kategoriak .kategoria img {
+    max-width: 100%;
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #00acc1; /* borde estilo agua */
+    margin-bottom: 12px;
+    object-fit: cover;
+}
+
+
+.hiruu .kategoriak .kategoria h3 {
+    font-size: 1.1rem;
+    color: #00796b; 
+    margin: 5px 0;
+}
+
+
+.hiruu .kategoriak .kategoria p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0;
+	
+}
+.prezioa{
+	font-weight:bold;
+}
+
+.hiruu .kategoriak .kategoria img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+/*------------------------------------------------*/
+.footer {
+            
+            background-color: #f0f0f0; 
+            color: #333; 
+            padding: 10px 10px;
+            text-align: center;
+            border-top: 1px solid #ddd; 
+            width: 100%;
+}
+.brand-info h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+}
+/*------------------------------------------------*/
+/*MEDIA*/
+/*------------------------------------------------*/
+@media (max-width: 768px) {
+
+    /* ---------------- HEADER ---------------- */
+    header {
+        grid-template-columns: repeat(6, 1fr); 
+        
+        text-align: center;
+        font-size: 0.8rem;
+    }
+
+    header .logoa {
+        grid-column: 1 / span 1;
+        
+        height: 75px;
+        margin: auto;
+    }
+
+    .titulos-centrales {
+        grid-column: 3 / span 3;
+        font-size: 0.7rem;
+        padding: 0 5px;
+    }
+
+    header .kontakto {
+        grid-column: 7 / span 1;
+        margin: auto;
+        
+		height: 80px;
+    }
+    header .zesta {
+        grid-column: 8 / span 1;
+        margin: auto;
+        
+		height: 70px;
+    }
+
+    /* ---------------- NAV ---------------- */
+
+    nav p {
+        margin: 4px 0;
+        font-size: 0.9rem;
+    }
+
+    /* ---------------- BANNER ---------------- */
+    .bat {
+        height: 200px;
+    }
+    .bat img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    /* ---------------- ZERBITZUAK ---------------- */
+    .bi .servicios {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 5px 0;         
+    gap: 5px;               
+    margin: 5px 0;          
+	}
+
+
+	.bi .servicios > div {
+		margin: 5px;             /* menos separación */
+		padding: 6px;            /* menos padding interno */
+		border-radius: 6px;      /* esquinas menos grandes */
+	}
+
+
+	.bi img {
+		width: 60px;             
+		margin-bottom: 5px;
+	}
+
+	/* TEXTO MÁS PEQUEÑO */
+	.bi p {
+		font-size: 0.7rem;       /* más compacto */
+	}
+
+	/* Cada elemento ocupa solo 1 columna */
+	.bi .servicios .pago       { grid-column: span 1; }
+	.bi .servicios .envio      { grid-column: span 1; }
+	.bi .servicios .devolucion { grid-column: span 1; }
+	.bi .servicios .gratis     { grid-column: span 1; }
+    /* ---------------- PRODUCTOS (4 → 2 columnas) ---------------- */
+    .hiru .kategoriak,
+    .hiruu .kategoriak {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .hiru .kategoriak .kategoria img,
+    .hiruu .kategoriak .kategoria img {
+        width: 120px;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+    .footer {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+}

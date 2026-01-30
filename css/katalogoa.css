@@ -1,0 +1,114 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* --- CENTRADO Y RESPONSIVE --- */
+.container {
+    max-width: 1200px;
+    margin: auto;              /* 🔹 Centra toda la zona */
+    padding: 20px;
+}
+
+
+.row {
+    justify-content: center;   
+}
+
+
+.kategoria {
+    background: linear-gradient(145deg, #e0f7fa, #ffffff);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 18px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;        
+    height: 100%;
+}
+
+.kategoria:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.kategoria-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    border: 2px solid #00acc1;
+    margin-bottom: 12px;
+    transition: transform 0.3s ease;
+    display: block;
+    margin-left: auto;     
+    margin-right: auto;     
+}
+
+
+
+.kategoria-h3 {
+    font-size: 1.2rem;
+    color: #00796b;
+    margin: 8px 0;
+}
+
+.kategoria-p {
+    font-size: 1rem;
+    color: #555;
+    margin: 4px 0;
+}
+
+.produktuak-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+.produktua-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.produktua-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 10px
+}
+
+.produktua-card .viejo {
+            text-decoration: line-through;
+            color: #6c757d;
+}
+        
+.produktua-card .nuevo {
+            color: red;
+            font-weight: bold;
+}
+.produktua-card .deskontua {
+            background-color: #28a745; 
+            color: white; 
+            padding: 2px 5px; 
+            border-radius: 5px; 
+            width: fit-content; 
+            margin: 5px auto 0;
+}
+footer {
+    margin-top: 20px;
+}

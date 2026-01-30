@@ -1,0 +1,110 @@
+.main-content {
+    margin-top: 40px;
+    padding: 0 20px;
+	
+
+}
+.produktua {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 20px;
+}
+.link {
+    align-self: flex-start;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.irudia {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+	border: 1px solid black;
+}
+
+.marka {
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.modeloa {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #555;
+    text-align: center;
+}
+.divider {
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.deskripzioa {
+    align-self: flex-start;
+}
+
+.deskripzioa_p {
+    text-align: justify;
+}
+
+
+.prezioen-gunea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.prezio-zaharra {
+    text-decoration: line-through;
+    color: #888;
+    margin: 0;
+}
+
+.prezio-berria {
+    font-size: 2rem;
+    color: #dc3545;
+    margin: 0;
+}
+
+.prezio-arrunta {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.deskontua {
+    /* Quita cualquier width fijo que tengas */
+  width: auto; 
+  /* Asegura que el contenedor abrace el contenido */
+  display: inline-block; 
+  /* O usa fit-content si quieres ser más moderno */
+  width: fit-content;
+  
+  /* Añade relleno a los lados para que el texto no toque los bordes */
+  padding-left: 10px;
+  padding-right: 10px;
+  
+  /* Mantén el texto centrado si es necesario */
+  text-align: center;
+}
+
+.btn-agregar {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-agregar:hover {
+    background-color: #0056b3;
+}
+footer{
+	margin-top:20px;
+}

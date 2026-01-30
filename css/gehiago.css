@@ -1,0 +1,256 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1;
+}
+/*** --- GALERIAK --- */
+
+/************ GALERÍA CARRUSEL ************/
+
+
+
+.gallery-carousel {
+    position: relative;
+    max-width: 900px;
+    margin: 40px auto;
+    overflow: hidden;
+}
+
+.gallery-carousel::after {
+    content: "← Desliza →";
+    display: block;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 5px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.gallery-card {
+    min-width: 280px;
+    margin-right: 25px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.15);
+}
+
+/* Overlay */
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,124,145,0.85),
+        rgba(0,124,145,0.15)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Botones */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #00BCD4;
+    color: #fff;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+.carousel-btn:hover {
+    background: #009fb3;
+}
+
+.carousel-btn.left {
+    left: 10px;
+}
+
+.carousel-btn.right {
+    right: 10px;
+}
+
+/*****************************************/
+
+
+
+
+/************ AUDIO ************/
+
+
+.audio-box {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.audio-title {
+    color: #0c1011;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+}
+
+/* LOGO SPRITE */
+.audio-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px auto;
+    
+    background-image: url("../img/logo2.png");
+    background-repeat: no-repeat;
+
+    background-position: 0 0;
+    background-size: auto;
+ 
+}
+
+/* Animación simple */
+.audio-box:hover .audio-logo {
+    background-position: -80px 0;
+}
+
+/* LISTA DE AUDIOS */
+.audio-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.audio-item {
+    background: #f0f9fb;
+    padding: 7px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
+}
+
+.audio-item p {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #009fb3;
+}
+
+/* AUDIO */
+.audio-item audio {
+    width: 100%;
+    border-radius: 10px;
+    accent-color: #00BCD4;
+}
+
+/******************************************/
+
+/********* BIDEOA **********/
+.audio-bideo-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 0.8fr; /* 3 columnas de igual tamaño */
+    gap: 20px;
+    padding: 20px;
+    background-color: #f4f4f4; /* Color de fondo opcional */
+}
+
+/* Estilos para cada columna */
+.columna {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.options-box{
+    height: min-content;
+}
+.options-box h1 {
+    text-align: center;
+    color: #0c1011;
+    font-size: x-large;
+    margin-bottom: 40px;
+}
+
+/* Estilos de los botones (basado en tus clases) */
+.kontrolak {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.botoi {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+
+.botoi.berdea { background-color: #28a745; }
+.botoi.horia { background-color: #ffc107; color: black; }
+.botoi.gorria { background-color: #dc3545; }
+.botoi.urdina { background-color: #17a2b8; }
+.botoi.zuria { background-color: #6c757d; border: 1px solid #ccc; }
+
+/* Selector de video */
+.bideo-zerrenda-kontrola select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Responsive: En móviles poner una columna debajo de otra */
+@media (max-width: 768px) {
+    .audio-bideo-container {
+        grid-template-columns: 1fr;
+    }
+}
+/******************************************/
+
+
+
+  footer {
+    margin-top: 20px;
+}

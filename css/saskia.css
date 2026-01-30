@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1;
+}
+
+
+.saskia-container { 
+	padding: 20px; 
+	text-align: center; 
+	}
+
+table.saskia-table { 
+	width: 80%; 
+	margin: 20px auto; 
+	border-collapse: collapse; 
+	}
+		
+table.saskia-table th, table.saskia-table td { 
+	border: 1px solid #ddd; 
+	padding: 10px; 
+	text-align: center; 
+	}
+        
+table.saskia-table th { 
+	background-color: #f2f2f2;
+	}
+     
+.totala { 
+	font-size: 1.5em; 
+	font-weight: bold; 
+	margin-top: 20px; 
+	}
+        
+.btn-jarraitu { 
+	background-color: #007bff; 
+	color: white; 
+	padding: 10px 20px; 
+	text-decoration: none; 
+	border-radius: 5px; 
+	}
+        
+.btn-pagar {
+	background-color: #28a745; 
+	color: white; 
+	padding: 10px 20px; 
+	text-decoration: none;
+	border-radius: 5px; }
