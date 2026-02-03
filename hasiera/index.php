@@ -1,4 +1,10 @@
 <?php
+require_once('klaseak/com/leartik/daw24amma/produktuak/produktua.php'); // Clase Producto (si existe)
+require_once('klaseak/com/leartik/daw24amma/produktuak/produktua_db.php'); // Clase para acceder a la BD de Productos
+
+use com\leartik\daw24amma\produktuak\ProduktuaDB;
+
+
 $api_base = "http://localhost/web_garapena_zerbitzari_ingurunean/zerbitzari_erronka_proba/api/produktua";
 
 // Nobedadeak

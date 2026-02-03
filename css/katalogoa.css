@@ -30,10 +30,11 @@ main {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: none;
     padding: 18px;
-    border-radius: 12px;
+    
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;        
     height: 100%;
+    margin: 15px;
 }
 
 .kategoria:hover {

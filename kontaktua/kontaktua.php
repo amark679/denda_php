@@ -1,3 +1,22 @@
+<?php
+if (!isset($errorea)) { 
+        $errorea = ""; 
+    }
+	
+$feedback = ""; 
+
+
+if (isset($_GET['egoera'])) {
+    
+    if ($_GET['egoera'] == 'ondo') {
+        $feedback = "<div style='color: white; background-color: #1a838f; padding: 10px; text-align: center; margin-bottom: 10px;'>Mezua ondo bidali da! Eskerrik asko.</div>";
+    } 
+    elseif ($_GET['egoera'] == 'errorea') {
+        $feedback = "<div style='color: white; background-color: red; padding: 10px; text-align: center; margin-bottom: 10px;'>Arazo bat egon da. Saiatu berriro.</div>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="eu">
 <head>
@@ -13,12 +32,12 @@
             <h1>PescaNova</h1> 
             <h3>Arrain-denda</h3>       
         </div>         
-        <img class="zesta" src="../img/zesta.png" alt="" height="120px">
+        <a href="../saskia/index.php"><img class="zesta" src="../img/zesta.png" alt="" height="120px"></a>
     </header>
 
     <nav>
     <p><a href=".." style="color:white; text-decoration:none;">Hasiera</a></p>
-    <p><a href="katalogoa.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
+    <p><a href="../katalogoa/katalogoa.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
     <p>Gure buruz</p>
     <p>Kontaktua</p>
 </nav>
@@ -62,21 +81,29 @@
             </div>
 
             <div class="form-box">
+			
+			<?php echo $feedback; ?>
+			<?php if (!empty($errorea)): ?>
+				<div style='color: white; background-color: orange; padding: 10px;'>
+					<?php echo $errorea; ?>
+				</div>
+			<?php endif; ?>
+						
                 <h2>Bidaliguzu mezu bat</h2>
-                <form action="#" method="POST">
+                <form action="mezua_gorde.php" method="POST">
                     <div class="form-group">
                         <label for="izena">Izena:</label>
-                        <input type="text" id="izena" name="izena" placeholder="Zure izena" required>
+                        <input type="text" id="izena" name="izena" placeholder="Zure izena">
                     </div>
 
                     <div class="form-group">
                         <label for="emaila">Posta Elektronikoa:</label>
-                        <input type="email" id="emaila" name="emaila" placeholder="adibidea@email.com" required>
+                        <input type="email" id="emaila" name="emaila" placeholder="adibidea@email.com">
                     </div>
 					
                     <div class="form-group">
                         <label for="mezua">Mezua:</label>
-                        <textarea id="mezua" name="mezua" rows="5" placeholder="Idatzi hemen zure galdera..." required></textarea>
+                        <textarea id="mezua" name="mezua" rows="5" placeholder="Idatzi hemen zure galdera..."></textarea>
                     </div>
 
                     <button type="submit" class="bidali-btn">Bidali Mezua</button>

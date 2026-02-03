@@ -1,5 +1,4 @@
 <?php
-// Verificación básica de sesión (por si se carga este archivo directo)
 if (!isset($_SESSION['saskia'])) {
     $detaileak = [];
 } else {
@@ -13,7 +12,7 @@ if (!isset($_SESSION['saskia'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PescaNova - Saskia</title>
+    <title>PescaNova</title>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/saskia.css">
     <style>
@@ -36,7 +35,6 @@ if (!isset($_SESSION['saskia'])) {
         <p><a href="index.php" style="color:white; text-decoration:none;">Hasiera</a></p>
         <p><a href="../katalogoa/katalogoa.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
         <p><a href="../gehiago/gehiago.html" style="color:white; text-decoration:none;">Gehiago</a></p>
-        <p>Gure buruz</p>
         <p><a href="../kontaktua/kontaktua.php" style="color:white; text-decoration:none;">Kontaktua</a></p>
     </nav>
 
@@ -64,7 +62,8 @@ if (!isset($_SESSION['saskia'])) {
                             <th>Prezioa</th>
                             <th>Kopurua</th>
                             <th>Guztira</th>
-                            <th>Ekintzak</th> </tr>
+                            <th>Ezabatu</th> 
+                        </tr>
                     </thead>
                     <tbody>
                         <?php 
@@ -133,8 +132,8 @@ if (!isset($_SESSION['saskia'])) {
                 </div>
 
                 <div style="margin-top: 30px;">
-                    <a href="../katalogoa/katalogoa.php" class="btn-jarraitu">Erosketak egiten jarraitu</a>
-                    <a href="#" class="btn-pagar">Ordainketa egin</a>
+                    <a href="../katalogoa/index.php" class="btn-jarraitu">Erosketak egiten jarraitu</a>
+                    <a href="index.php?bista=datuak" class="btn-pagar">Ordainketa egin</a>
                 </div>
 
             <?php endif; ?>

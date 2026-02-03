@@ -26,13 +26,14 @@
 	<table>
 
         <tr>
+            <th>Igorlea:</th>
+            <td><?= $mezua->getIzena()?></td>
+        </tr>
+        <tr>
             <th>Mezua:</th>
             <td><?= $mezua->getMezua() ?></td>
         </tr>
-        <tr>
-            <th>Ordua:</th>
-            <td><?= $mezua->getOrdua() ?></td>
-        </tr>
+    
     </table>
 
 	<br>

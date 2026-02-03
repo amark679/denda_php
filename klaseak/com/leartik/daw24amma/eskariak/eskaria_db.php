@@ -4,37 +4,112 @@ namespace com\leartik\daw24amma\eskariak;
 
 use Exception;
 use PDO;
+use com\leartik\daw24amma\bezeroak\Bezeroa; 
 
 class EskariaDB
 {
-    // Ruta a tu base de datos
-    private const DB_PATH = "sqlite:C:/Users/lai2/Desktop/Markatzeko lenguaiak/htdocs/web_garapena_zerbitzari_ingurunean/zerbitzari_erronka/denda.db";
+    // Asegúrate de que la ruta sea correcta. En Windows las barras suelen ser \ o / pero es mejor ser consistente.
+    private static $db_path = "sqlite:C:/Users/lai2/Desktop/Markatzeko lenguaiak/htdocs/web_garapena_zerbitzari_ingurunean/zerbitzari_erronka_proba/denda.db";
 
-    /**
-     * Selecciona una Eskaria por su ID
-     */
+    private static function getKonexioa() {
+        $db = new PDO(self::$db_path);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $db;
+    }
+
+    public static function insertEskaria($eskaria) {
+        $db = self::getKonexioa(); 
+
+        try {
+            // 1. Iniciar Transacción
+            $db->beginTransaction();
+
+            // 2. Insertar en Eskariak
+            $sql = "INSERT INTO eskariak (izena, abizena, helbidea, herria, postaKodea, probintzia, emaila, data) 
+                    VALUES (:izena, :abizena, :helbidea, :herria, :pk, :prob, :email, :data)";
+            
+            $stmt = $db->prepare($sql);
+        
+            $bezeroa = $eskaria->getBezeroa();
+
+            $stmt->bindValue(':izena',    $bezeroa->getIzena());
+            $stmt->bindValue(':abizena',  $bezeroa->getAbizena());
+            $stmt->bindValue(':helbidea', $bezeroa->getHelbidea());
+            $stmt->bindValue(':herria',   $bezeroa->getHerria());
+            $stmt->bindValue(':pk',       $bezeroa->getPostaKodea());
+            $stmt->bindValue(':prob',     $bezeroa->getProbintzia());
+            $stmt->bindValue(':email',    $bezeroa->getEmaila());
+            $stmt->bindValue(':data',     $eskaria->getData());
+
+            $stmt->execute();
+
+            // Obtener ID generado
+            $eskariaId = $db->lastInsertId();
+
+            // 3. Insertar en Detaileak
+            $sqlDetalle = "INSERT INTO detaileak (id_eskaria, id_produktua, prezioa, kopurua) 
+                           VALUES (:id_eskaria, :id_produktua, :prezioa, :kopurua)";
+            
+            $stmtDetalle = $db->prepare($sqlDetalle);
+
+            foreach ($eskaria->getDetaileak() as $detailea) {
+                
+                $produktua = $detailea->getProduktua();
+
+                $prezioaOriginal = $produktua->getPrezioa();
+                $deskontua = $produktua->getDeskontuak(); 
+                
+                $prezioaFinal = $prezioaOriginal * (1 - $deskontua);
+
+                $stmtDetalle->bindValue(':id_eskaria',   $eskariaId);       
+                $stmtDetalle->bindValue(':id_produktua', $produktua->getId()); 
+                $stmtDetalle->bindValue(':prezioa',      $prezioaFinal);    
+                $stmtDetalle->bindValue(':kopurua',      $detailea->getKopurua()); 
+
+                $stmtDetalle->execute();
+            }
+
+            // 4. Confirmar cambios
+            $db->commit();
+
+            return $eskariaId;
+
+        } catch (Exception $e) {
+            
+            if ($db->inTransaction()) {
+                $db->rollBack();
+            }
+            echo "<p>Errorea (insertEskaria): " . $e->getMessage() . "</p>\n";
+            return 0;
+        }
+    } // Aquí acaba la función insertEskaria. HABÍA UNA LLAVE EXTRA AQUÍ QUE HE QUITADO.
+
     public static function selectEskaria($id) {
         try {
-            $db = new PDO(self::DB_PATH);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $db = self::getKonexioa();
 
-            // Solo seleccionamos por id
             $stmt = $db->prepare("SELECT * FROM eskariak WHERE id = :id");
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
 
             $eskaria = null;
 
-            if ($erregistroa = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+              
                 $eskaria = new Eskaria();
-                
-                // Asignamos el ID recuperado
-                $eskaria->setId($erregistroa['id']);
-                
-                // Como has dicho que son el mismo, asignamos el mismo ID al bezeroa
-                $eskaria->setBezeroa($erregistroa['id']); 
-                
-                $eskaria->setData($erregistroa['data']);
+                $eskaria->setId($row['id']);
+                $eskaria->setData($row['data']);
+
+                $bezeroa = new Bezeroa();
+                $bezeroa->setIzena($row['izena']);
+                $bezeroa->setAbizena($row['abizena']);
+                $bezeroa->setHelbidea($row['helbidea']);
+                $bezeroa->setHerria($row['herria']);
+                $bezeroa->setPostaKodea($row['postaKodea']); 
+                $bezeroa->setProbintzia($row['probintzia']);
+                $bezeroa->setEmaila($row['emaila']);
+
+                $eskaria->setBezeroa($bezeroa);
             }
 
             return $eskaria;
@@ -45,27 +120,31 @@ class EskariaDB
         }
     }
 
-    /**
-     * Selecciona todas las Eskarias
-     */
     public static function selectEskariak() {
         try {
-            $db = new PDO(self::DB_PATH);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $db = self::getKonexioa();
 
             $stmt = $db->prepare("SELECT * FROM eskariak");
             $stmt->execute();
 
             $eskariak = array();
 
-            while ($erregistroa = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
                 $eskaria = new Eskaria();
-                $eskaria->setId($erregistroa['id']);
-                
-                // Bezeroa es igual al ID
-                $eskaria->setBezeroa($erregistroa['id']);
-                
-                $eskaria->setData($erregistroa['data']);
+                $eskaria->setId($row['id']);
+                $eskaria->setData($row['data']);
+
+                $bezeroa = new Bezeroa();
+                $bezeroa->setIzena($row['izena']);
+                $bezeroa->setAbizena($row['abizena']);
+                $bezeroa->setHelbidea($row['helbidea']);
+                $bezeroa->setHerria($row['herria']);
+                $bezeroa->setPostaKodea($row['postaKodea']);
+                $bezeroa->setProbintzia($row['probintzia']);
+                $bezeroa->setEmaila($row['emaila']);
+
+                $eskaria->setBezeroa($bezeroa);
 
                 $eskariak[] = $eskaria;
             }
@@ -75,90 +154,6 @@ class EskariaDB
         } catch (Exception $e) {
             echo "<p>Salbuespena (selectEskariak): " . $e->getMessage() . "</p>\n";
             return [];
-        }
-    }
-
-    /**
-     * Inserta una nueva Eskaria
-     * IMPORTANTE: Aquí debemos insertar el ID manualmente porque dijiste que coincide con el cliente.
-     */
-    public static function insertEskaria($eskaria) {
-        try {
-            $db = new PDO(self::DB_PATH);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            // Insertamos 'id' y 'data'. 
-            // NO usamos autoincrement porque el ID viene dado (es el del cliente).
-            $sql = 'INSERT INTO eskariak (id, data) VALUES (:id, :data)';
-            
-            $stmt = $db->prepare($sql);
-
-            // Obtenemos valores
-            // Usamos getId() o getBezeroa(), ya que son lo mismo
-            $idVal = $eskaria->getId(); 
-            $dataVal = $eskaria->getData();
-            
-            $stmt->bindValue(':id', $idVal, PDO::PARAM_INT);
-            $stmt->bindValue(':data', $dataVal, PDO::PARAM_STR);
-
-            $emaitza = $stmt->execute();
-
-            return $emaitza ? 1 : 0;
-
-        } catch (Exception $e) {
-            echo "<p>Errorea (insertEskaria): " . $e->getMessage() . "</p>\n";
-            return 0;
-        }
-    }
-
-    /**
-     * Actualiza una Eskaria existente
-     */
-    public static function updateEskaria($eskaria) {
-        try {
-            $db = new PDO(self::DB_PATH);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            // Solo actualizamos la fecha, porque el ID es la clave primaria y no suele cambiar
-            $sql = 'UPDATE eskariak SET data = :data WHERE id = :id';
-            
-            $stmt = $db->prepare($sql);
-
-            $dataVal = $eskaria->getData();
-            $id = $eskaria->getId();
-
-            $stmt->bindValue(':data', $dataVal, PDO::PARAM_STR);
-            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-
-            $emaitza = $stmt->execute();
-
-            return $emaitza ? 1 : 0;
-
-        } catch (Exception $e) {
-            echo "<p>Errorea (updateEskaria): " . $e->getMessage() . "</p>\n";
-            return 0;
-        }
-    }
-
-    /**
-     * Elimina una Eskaria por ID
-     */
-    public static function deleteEskaria($id) {
-        try {
-            $db = new PDO(self::DB_PATH);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            $sql = 'DELETE FROM eskariak WHERE id = :id';
-            $stmt = $db->prepare($sql);
-            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-
-            $stmt->execute();
-
-            return $stmt->rowCount();
-
-        } catch (Exception $e) {
-            echo "<p>Errorea ezabatzean: " . $e->getMessage() . "</p>\n";
-            return 0;
         }
     }
 }

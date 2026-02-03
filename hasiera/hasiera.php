@@ -14,14 +14,15 @@
             <h1>PescaNova</h1> 
             <h3>Arrain-denda</h3>       
         </div>         
-        <a href="saskia"><img class="zesta" src="img/zesta.png" alt="" height="120px"><a/>
+        <a href="saskia" class="zesta-link">
+			<img class="zesta" src="img/zesta.png" alt="" height="120px">
+		</a>
     </header>
 
     <nav>
-    <p><a href=".." style="color:white; text-decoration:none;">Hasiera</a></p>
-    <p><a href="katalogoa/katalogoa.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
+    <p><a href="" style="color:white; text-decoration:none;">Hasiera</a></p>
+    <p><a href="katalogoa/index.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
     <p><a href="gehiago/gehiago.html" style="color:white; text-decoration:none;">Gehiago</a></p>
-    <p>Gure buruz</p>
     <p><a href="kontaktua/kontaktua.php" style="color:white; text-decoration:none;">Kontaktua</a></p>
 </nav>
 
@@ -63,7 +64,8 @@
                             <h3><?= htmlspecialchars($p['marka']) ?></h3>
                             <p><?= htmlspecialchars($p['modeloa']) ?></p>
 							<p class="prezioa">Prezioa: <?= number_format($p['prezioa'], 2) ?> €</p>
-									
+                            <hr>
+							<a href="katalogoa/index.php?action=produktua&id=<?= $p['id'] ?>">Ikusi produktua</a>		
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -103,6 +105,8 @@
 				<?php else: ?>
 					<p><?= number_format($prezioa, 2) ?> €</p>
 				<?php endif; ?>
+                <hr>
+                <a href="katalogoa/index.php?action=produktua&id=<?= $p['id'] ?>">Ikusi produktua</a>
 			</div>
 		<?php endforeach; ?>
         <?php else: ?>

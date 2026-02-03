@@ -33,12 +33,10 @@ main.hiru {
     text-align: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: transform .25s ease, box-shadow .25s ease;
-    
-
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    height: 90%;
+    align-items: center;
+
 }
 
 
