@@ -33,7 +33,7 @@ if (!isset($_SESSION['saskia'])) {
 
     <nav>
         <p><a href="index.php" style="color:white; text-decoration:none;">Hasiera</a></p>
-        <p><a href="../katalogoa/katalogoa.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
+        <p><a href="../katalogoa/index.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
         <p><a href="../gehiago/gehiago.html" style="color:white; text-decoration:none;">Gehiago</a></p>
         <p><a href="../kontaktua/kontaktua.php" style="color:white; text-decoration:none;">Kontaktua</a></p>
     </nav>
@@ -48,7 +48,7 @@ if (!isset($_SESSION['saskia'])) {
                 <div style="margin: 50px;">
                     <p>Zure saskia hutsik dago.</p>
                     <br>
-                    <a href="../katalogoa/katalogoa.php" class="btn-jarraitu">Erosketak egiten jarraitu</a>
+                    <a href="../katalogoa/index.php" class="btn-jarraitu">Erosketak egiten jarraitu</a>
                 </div>
 
             <?php else: ?>
@@ -132,7 +132,7 @@ if (!isset($_SESSION['saskia'])) {
                 </div>
 
                 <div style="margin-top: 30px;">
-                    <a href="../katalogoa/index.php" class="btn-jarraitu">Erosketak egiten jarraitu</a>
+                    <a href="../katalogoa/" class="btn-jarraitu">Erosketak egiten jarraitu</a>
                     <a href="index.php?bista=datuak" class="btn-pagar">Ordainketa egin</a>
                 </div>
 

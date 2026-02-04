@@ -37,9 +37,9 @@ if (isset($_GET['egoera'])) {
 
     <nav>
     <p><a href=".." style="color:white; text-decoration:none;">Hasiera</a></p>
-    <p><a href="../katalogoa/katalogoa.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
-    <p>Gure buruz</p>
-    <p>Kontaktua</p>
+    <p><a href="../katalogoa/index.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
+    <p><a href="../gehiago/gehiago.html" style="color:white; text-decoration:none;">Gehiago</a></p>
+    <p><a href="../kontaktua/kontaktua.php" style="color:white; text-decoration:none;">Kontaktua</a></p>
 </nav>
 
 

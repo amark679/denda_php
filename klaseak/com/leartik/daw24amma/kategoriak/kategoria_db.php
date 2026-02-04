@@ -11,7 +11,7 @@ use PDO;
 class KategoriaDB
 {
   
-    private static $db_path = "sqlite:C:/Users/lai2\Desktop/Markatzeko lenguaiak/htdocs/web_garapena_zerbitzari_ingurunean/zerbitzari_erronka_proba/denda.db";
+    private static $db_path = "sqlite:C:/Users/lai2/Desktop/Markatzeko lenguaiak/htdocs/web_garapena_zerbitzari_ingurunean/denda_php/denda.db";
 
     private static function getKonexioa() {
         $db = new PDO(self::$db_path);

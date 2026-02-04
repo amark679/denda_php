@@ -1,4 +1,3 @@
 <?php
-
-require_once 'hasiera/index.php';
+    require_once 'hasiera/index.php';
 ?>
