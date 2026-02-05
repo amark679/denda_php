@@ -14,6 +14,14 @@ require('../klaseak/com/leartik/daw24amma/mezuak/mezua_db.php');
 use com\leartik\daw24amma\mezuak\MezuaDB;
 use com\leartik\daw24amma\mezuak\Mezua;
 
+require('../klaseak/com/leartik/daw24amma/bezeroak/bezeroa.php');
+use com\leartik\daw24amma\bezeroak\Bezeroa;
+
+require('../klaseak/com/leartik/daw24amma/eskariak/eskaria.php');
+require('../klaseak/com/leartik/daw24amma/eskariak/eskaria_db.php');
+use com\leartik\daw24amma\eskariak\EskariaDB;
+use com\leartik\daw24amma\eskariak\Eskaria;
+
 
 // administrazio gunean sartzeko baldintzak egiaztatu
 $admin = false;
@@ -42,6 +50,9 @@ if ($admin == true) {
 	
 	$mezuak = MezuaDB::selectMezuak();
     include('mezuak_erakutsi.php');
+
+    $eskariak = EskariaDB::selectEskariak();
+    include('eskariak_erakutsi.php');
 	
 	
 	

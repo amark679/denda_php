@@ -323,7 +323,7 @@ nav p:hover {
     }
 
     .titulos-centrales {
-        grid-column: 3 / span 3;
+        grid-column: 2 / span 4;
         font-size: 0.7rem;
     }
 

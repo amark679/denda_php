@@ -25,8 +25,9 @@ $bezeroa = $eskaria->getBezeroa();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eskerrik Asko! - PescaNova</title>
+    <title>PescaNova</title>
     <link rel="stylesheet" href="../css/index.css">
+  
     <style>
         .confirmation-box {
             max-width: 600px;
@@ -61,10 +62,16 @@ $bezeroa = $eskaria->getBezeroa();
     <header>
         <a href=".."><img class="logoa" src="../img/logo.png" alt="" height="100px"></a>
         <div class="titulos-centrales"> 
-            <h1>PescaNova</h1> 
-      
+            <h1>PescaNova</h1>      
         </div>         
     </header>
+
+      <nav>
+        <p><a href="index.php" style="color:white; text-decoration:none;">Hasiera</a></p>
+        <p><a href="../katalogoa/katalogoa.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
+        <p><a href="../gehiago/gehiago.html" style="color:white; text-decoration:none;">Gehiago</a></p>
+        <p><a href="../kontaktua/kontaktua.php" style="color:white; text-decoration:none;">Kontaktua</a></p>
+    </nav>
 
     <main>
         <div class="confirmation-box">

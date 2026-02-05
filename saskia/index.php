@@ -143,7 +143,11 @@ if (isset($_POST['gorde_datuak'])) {
      
         $eskaria = new Eskaria();
         $eskaria->setData(date('Y-m-d H:i:s'));
-        $eskaria->setBezeroa($bezeroa);        
+        $eskaria->setBezeroa($bezeroa);
+        
+        //Saskiko detaileak hartu eta eskarira sartzen ditugu
+        
+        $eskaria->setDetaileak($saskia->getDetaileak());
 
         // DB-an inserta egin
 

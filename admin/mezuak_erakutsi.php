@@ -15,7 +15,7 @@
         </li>
     <?php } ?>
     </ul>
+    <hr>
 
-    <p><a href="irten.php">Sesiotik irten</a></p>
   </body>
 </html>

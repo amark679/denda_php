@@ -5,11 +5,16 @@ namespace com\leartik\daw24amma\eskariak;
 use Exception;
 use PDO;
 use com\leartik\daw24amma\bezeroak\Bezeroa; 
+use com\leartik\daw24amma\produktuak\Produktua;
+use com\leartik\daw24amma\saskia\Detailea;
 
 class EskariaDB
 {
     // Asegúrate de que la ruta sea correcta. En Windows las barras suelen ser \ o / pero es mejor ser consistente.
-    private static $db_path = "sqlite:C:/Users/lai2/Desktop/Markatzeko lenguaiak/htdocs/web_garapena_zerbitzari_ingurunean/denda_php/denda.db";
+    //private static $db_path = "sqlite:C:/Users/lai2/Desktop/Markatzeko lenguaiak/htdocs/web_garapena_zerbitzari_ingurunean/denda_php/denda.db";
+
+    private static $db_path = "sqlite:C:\\xampp\\htdocs\\web_garapena_zerbitzari_ingurunean\\denda_php\\denda.db";
+
 
     private static function getKonexioa() {
         $db = new PDO(self::$db_path);
@@ -82,12 +87,13 @@ class EskariaDB
             echo "<p>Errorea (insertEskaria): " . $e->getMessage() . "</p>\n";
             return 0;
         }
-    } // Aquí acaba la función insertEskaria. HABÍA UNA LLAVE EXTRA AQUÍ QUE HE QUITADO.
+    }
 
     public static function selectEskaria($id) {
         try {
             $db = self::getKonexioa();
 
+            // Eskaria eta bezeroa
             $stmt = $db->prepare("SELECT * FROM eskariak WHERE id = :id");
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
@@ -110,6 +116,41 @@ class EskariaDB
                 $bezeroa->setEmaila($row['emaila']);
 
                 $eskaria->setBezeroa($bezeroa);
+
+                // -------------------------------------------------------------
+                // 2. Produktuak rekuperatu Detaileetatik
+                // -------------------------------------------------------------
+
+                $sql_det = "SELECT d.kopurua, d.prezioa as prezioa_pagado, p.id, p.marka, p.modeloa 
+                            FROM detaileak d 
+                            JOIN produktuak2 p ON d.id_produktua = p.id 
+                            WHERE d.id_eskaria = :id";
+                
+                $stmt_det = $db->prepare($sql_det);
+                $stmt_det->bindValue(':id', $id, PDO::PARAM_INT);
+                $stmt_det->execute();
+
+                $lista_detalles = [];
+
+                while ($row_det = $stmt_det->fetch(PDO::FETCH_ASSOC)) {
+
+                    $prod = new \com\leartik\daw24amma\produktuak\Produktua(); 
+                    $prod->setId($row_det['id']);
+                    $prod->setMarka($row_det['marka']);
+                    $prod->setModeloa($row_det['modeloa']);
+                    $prod->setPrezioa($row_det['prezioa_pagado']);
+                    $prod->setDeskontuak(0);
+
+                  
+                    $detailea = new \com\leartik\daw24amma\saskia\Detailea();
+                    $detailea->setProduktua($prod);
+                    $detailea->setKopurua($row_det['kopurua']);
+
+                    $lista_detalles[] = $detailea;
+                }
+
+
+                $eskaria->setDetaileak($lista_detalles);
             }
 
             return $eskaria;
@@ -154,6 +195,41 @@ class EskariaDB
         } catch (Exception $e) {
             echo "<p>Salbuespena (selectEskariak): " . $e->getMessage() . "</p>\n";
             return [];
+        }
+    }
+
+    public static function deleteEskaria($id) {
+        $db = self::getKonexioa();
+
+        try {
+            // 1. Hasieratu transakzioa (segurtasuna bermatzeko)
+            $db->beginTransaction();
+
+            // 2. Lehenengo: Detaileak ezabatu (Haurrak)
+            // Agian zure base datuak "ON DELETE CASCADE" dauka, baina hobe da eskuz egitea ziurtatzeko.
+            $sqlDet = "DELETE FROM detaileak WHERE id_eskaria = :id";
+            $stmtDet = $db->prepare($sqlDet);
+            $stmtDet->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmtDet->execute();
+
+            // 3. Ondoren: Eskaria bera ezabatu (Gurasoa)
+            $sqlMain = "DELETE FROM eskariak WHERE id = :id";
+            $stmtMain = $db->prepare($sqlMain);
+            $stmtMain->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmtMain->execute();
+
+            // 4. Aldaketak baieztatu
+            $db->commit();
+
+            return true; // Ondo ezabatu da
+
+        } catch (Exception $e) {
+            // Zerbait gaizki badoa, atzera egin (desegin aldaketak)
+            if ($db->inTransaction()) {
+                $db->rollBack();
+            }
+            echo "<p>Errorea (deleteEskaria): " . $e->getMessage() . "</p>\n";
+            return false;
         }
     }
 }
