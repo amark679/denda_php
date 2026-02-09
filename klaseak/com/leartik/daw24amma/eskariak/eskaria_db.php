@@ -18,6 +18,7 @@ class EskariaDB
 
     private static function getKonexioa() {
         $db = new PDO(self::$db_path);
+        $db->exec("PRAGMA foreign_keys = ON;");
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $db;
     }

@@ -21,7 +21,6 @@ if (isset($_GET['egoera'])) {
 <html lang="eu">
 <head>
     <meta charset="UTF-8">
-	<link rel="stylesheet" href="../css/index.css">
 	<link rel="stylesheet" href="../css/kontaktua.css">
 	
 </head>
@@ -32,7 +31,7 @@ if (isset($_GET['egoera'])) {
             <h1>PescaNova</h1> 
             <h3>Arrain-denda</h3>       
         </div>         
-        <a href="../saskia/index.php"><img class="zesta" src="../img/zesta.png" alt="" height="120px"></a>
+        <a href="../saskia/index.php" class="zesta-link"><img class="zesta" src="../img/zesta.png" alt="" height="120px"></a>
     </header>
 
     <nav>

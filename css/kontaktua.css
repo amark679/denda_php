@@ -1,35 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+	padding: 0;
+	width: 100%;
+    }
+body{
+    margin: 0;
+    padding: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background-color: #ffffff;
+	overflow-x: hidden;
+		
+	display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 main {
 	 flex: 1;
 	 width: 100%;
      max-width: 1200px;
      margin: 0 auto;   
      box-sizing: border-box;
-			}
+}
+header {
+    /* Diseño original de 12 columnas */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    font-size: small;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+	
+	width: 100%; 
+     /* Un poco de margen a los lados para que no toque los bordes */
+    box-sizing: border-box;
+}
+
+.titulos-centrales {
+    grid-column: 4 / span 6; 
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+header .logoa {
+	
+    margin: 10px;
+    border-radius: 90px;
+    grid-column: 1 / span 3; 
+}
+header .zesta-link {
+    grid-column: 10 / -1;
+    text-align: right;  
+    padding-right: 20px; 
+    display: block;      
+}
+header .zesta {
+	width: 100px;
+    margin: 0;
+    border-radius: 90px;
+   
+}
+/**************************************/
+nav {
+    background-color: #1a838f;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 2px;
+    gap: auto; 
+   
+}
+
+nav p {
+    color: white;
+
+    margin: 0; 
+    padding: 10px 20px; 
+    cursor: pointer;
+    border-radius: 4px; 
+    transition: background-color 0.3s ease; 
+}
+
+nav p:hover {
+    background-color: #007C91;
+   
+}
+/*****************************************/
 .kontaktu-container {
             display: flex;
-            gap: 40px; /* Espacio entre las dos cajas */
+            gap: 40px; 
             justify-content: center;
             align-items: flex-start;
-            flex-wrap: wrap; /* Para que baje en móviles */
+            flex-wrap: wrap; 
         }
 
-        /* Estilo común para ambas cajas */
+
         .info-box, .form-box {
 			margin: 10px;
             background-color: white;
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            flex: 1; /* Ambos ocupan el mismo ancho */
-            min-width: 300px; /* Ancho mínimo para no romperse */
+            flex: 1; 
+            min-width: 300px; 
         }
 
-        /* Estilos de la caja de información */
+      
         .info-box h2 { color: #1a838f; margin-top: 0; }
         .info-box p { color: #555; line-height: 1.6; }
         .info-box strong { color: #333; }
 
-        /* Estilos del formulario */
+     
         .form-box h2 { color: #1a838f; margin-top: 0; }
         
         .form-group { margin-bottom: 15px; }
@@ -47,7 +133,7 @@ main {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            box-sizing: border-box; /* Para que el padding no aumente el ancho */
+            box-sizing: border-box; 
             font-family: inherit;
         }
 
@@ -72,3 +158,18 @@ main {
             margin-bottom: 15px;
         }
         .dato span { margin-left: 10px; }
+
+.footer {
+            
+            background-color: #f0f0f0; 
+            color: #333; 
+            padding: 10px 10px;
+            text-align: center;
+            border-top: 1px solid #ddd; 
+            width: 100%;
+}
+.brand-info h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+}
