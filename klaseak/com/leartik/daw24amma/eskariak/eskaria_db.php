@@ -13,7 +13,7 @@ class EskariaDB
     // Asegúrate de que la ruta sea correcta. En Windows las barras suelen ser \ o / pero es mejor ser consistente.
     //private static $db_path = "sqlite:C:/Users/lai2/Desktop/Markatzeko lenguaiak/htdocs/web_garapena_zerbitzari_ingurunean/denda_php/denda.db";
 
-    private static $db_path = "sqlite:C:\\xampp\\htdocs\\web_garapena_zerbitzari_ingurunean\\denda_php\\denda.db";
+    private static $db_path = "sqlite:C:/Users/lai2/Desktop/Markatzeko lenguaiak/htdocs/web_garapena_zerbitzari_ingurunean/denda_php/denda.db";
 
 
     private static function getKonexioa() {

@@ -2,153 +2,162 @@
 <html lang="eu">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PescaNova - Gehiago</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="../css/gehiago.css">
-	<link rel="stylesheet" href="../css/index.css">
-	
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-	<header>
-        <a href=".."><img class="logoa" src="../img/logo.png" alt="" height="100px"></a>
+    
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="..">
+                <img class="logoa" src="../img/logo.png" alt="PescaNova Logo">
+            </a>
+        </div>
         <div class="titulos-centrales"> 
             <h1>PescaNova</h1> 
             <h3>Arrain-denda</h3>       
         </div>         
-        <img class="zesta" src="../img/zesta.png" alt="" height="120px">
+        <div class="cart-container">
+            <a href="../saskia" class="zesta-link">
+                <img class="zesta" src="../img/zesta.png" alt="Saskia">
+                <span class="cart-text">Saskia</span>
+            </a>
+        </div>
     </header>
 
-    <nav>
-    <p><a href=".." style="color:white; text-decoration:none;">Hasiera</a></p>
-    <p><a href="katalogoa.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
-    <p>Gehiago</p>
-    <p>Kontaktua</p>
-</nav>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="..">Hasiera</a></li>
+            <li><a href="katalogoa.php">Katalogoa</a></li>
+            <li><a href="#" class="active">Gehiago</a></li> <li><a href="../kontaktua/kontaktua.php">Kontaktua</a></li>
+        </ul>
+    </nav>
 
-<main>
-    <h2 style="text-align:center;">Gauza gehiago</h2>
-    <hr>
-
-    <!--Galeria-->
-
-    <section class="gallery-carousel">
-
-
-
-        <div class="carousel-track" id="carouselTrack">
-
-            <article class="gallery-card">
-                <img src="../img/karretea.png" alt="Karreteak">
-                <div class="gallery-overlay">
-                    <h3>Karreteak</h3>
-                    <p>Kalitate handiko ekipamendua</p>
-                </div>
-            </article>
-
-            <article class="gallery-card">
-                <img src="../img/beita.png" alt="Beita">
-                <div class="gallery-overlay">
-                    <h3>Beita</h3>
-                    <p>Arrain mota guztietarako</p>
-                </div>
-            </article>
-
-            <article class="gallery-card">
-                <img src="../img/señueloak.png" alt="Señueloak">
-                <div class="gallery-overlay">
-                    <h3>Señueloak</h3>
-                    <p>Erakargarriak eta eraginkorrak</p>
-                </div>
-            </article>
-
-            <article class="gallery-card">
-                <img src="../img/arropa.png" alt="Arropa">
-                <div class="gallery-overlay">
-                    <h3>Arrantzarako arropa</h3>
-                    <p>Erosotasuna eta babesa</p>
-                </div>
-            </article>
-
+    <main>
+        <div class="section-header" style="margin-top: 40px;">
+            <h2>Gauza gehiago</h2>
+            <div class="separator"></div>
         </div>
 
-       <button class="carousel-btn left">❮</button>
-        <button class="carousel-btn right">❯</button>
+        <section class="gallery-carousel">
+            <div class="carousel-track" id="carouselTrack">
+                <article class="gallery-card">
+                    <img src="../img/karretea.png" alt="Karreteak">
+                    <div class="gallery-overlay">
+                        <h3>Karreteak</h3>
+                        <p>Kalitate handiko ekipamendua</p>
+                    </div>
+                </article>
 
-    </section>
+                <article class="gallery-card">
+                    <img src="../img/beita.png" alt="Beita">
+                    <div class="gallery-overlay">
+                        <h3>Beita</h3>
+                        <p>Arrain mota guztietarako</p>
+                    </div>
+                </article>
 
-    <!--Audioa-->
-<section class="audio-bideo">
-    <div class="audio-bideo-container">
-        
-        <section class="columna audio-box">
-            <h3 class="audio-title">🎵 Audioa</h3>
-            
-            <div class="audio-logo"></div>
+                <article class="gallery-card">
+                    <img src="../img/señueloak.png" alt="Señueloak">
+                    <div class="gallery-overlay">
+                        <h3>Señueloak</h3>
+                        <p>Erakargarriak eta eraginkorrak</p>
+                    </div>
+                </article>
 
-            <div class="audio-list">
-                <div class="audio-item">
-                    <p>🎣 Arrantzarako doinua</p>
-                    <audio id="nireAudioa" controls>
-                        <source src="../audio/audio.mp3" type="audio/mpeg">
-                        Zure arakatzaileak ez du audioa onartzen.
-                    </audio>
-                    <div class="kontrolak">
-                        <button id="playBtn1" class="botoi berdea">PLAY</button>
-                        <button id="pauseBtn1" class="botoi horia">PAUSE</button>
-                        <button id="stopBtn1" class="botoi gorria">STOP</button> 
-                        <div class="bolumena">
-                            <button id="volplusBtn1" class="botoi zuria">VOL +</button>
-                            <button id="volminusBtn1" class="botoi zuria">VOL -</button>
+                <article class="gallery-card">
+                    <img src="../img/arropa.png" alt="Arropa">
+                    <div class="gallery-overlay">
+                        <h3>Arrantzarako arropa</h3>
+                        <p>Erosotasuna eta babesa</p>
+                    </div>
+                </article>
+            </div>
+
+            <button class="carousel-btn left">❮</button>
+            <button class="carousel-btn right">❯</button>
+        </section>
+
+        <section class="audio-bideo">
+            <div class="audio-bideo-container">
+                
+                <section class="columna audio-box">
+                    <h3 class="audio-title">🎵 Audioa</h3>
+                    
+                    <div class="audio-logo"></div>
+
+                    <div class="audio-list">
+                        <div class="audio-item">
+                            <p>🎣 Arrantzarako doinua</p>
+                            <audio id="nireAudioa" controls>
+                                <source src="../audio/audio.mp3" type="audio/mpeg">
+                                Zure arakatzaileak ez du audioa onartzen.
+                            </audio>
+                            <div class="kontrolak">
+                                <button id="playBtn1" class="botoi berdea">PLAY</button>
+                                <button id="pauseBtn1" class="botoi horia">PAUSE</button>
+                                <button id="stopBtn1" class="botoi gorria">STOP</button> 
+                                <div class="bolumena">
+                                    <button id="volplusBtn1" class="botoi zuria">VOL +</button>
+                                    <button id="volminusBtn1" class="botoi zuria">VOL -</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <section class="columna video-box">
+                    <h3 class="video-title">🎬 Bideoa</h3>
+                    
+                    <video id="nireBideoa" width="100%" height="auto">
+                        <source src="../bideoak/kainabera.mp4" type="video/mp4">
+                        Zure arakatzaileak ez du bideoa onartzen.
+                    </video>
+
+                    <div class="kontrolak">
+                        <button id="playBtn" class="botoi berdea">PLAY</button>
+                        <button id="pauseBtn" class="botoi horia">PAUSE</button>
+                        <button id="stopBtn" class="botoi gorria">STOP</button>
+                        <button id="muteBtn" class="botoi urdina">MUTE</button>
+                        <div class="bolumena">
+                            <button id="volplusBtn" class="botoi zuria">VOL +</button>
+                            <button id="volminusBtn" class="botoi zuria">VOL -</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="columna options-box">
+                    <h1>Bideo zerrenda</h1>
+                    <div class="bideo-zerrenda-kontrola">
+                        <label for="bideoHautatzailea">Aukeratu Bideoa:</label>
+                        <select id="bideoHautatzailea">
+                            <option value="../bideoak/kainabera.mp4">Zelan aukeratu kainabera</option>
+                            <option value="../bideoak/arrantzalekuak.mp4">Non eta noz egin arrantza</option>
+                            <option value="../bideoak/extra.mp4">Oinarrizko korapiloak</option>
+                        </select>
+                    </div>
+                </section>
+
             </div>
         </section>
+        
+        <script src="../scripta/script.js"></script>
 
-        <section class="columna video-box">
-            <h3 class="video-title">🎬 Bideoa</h3>
-            
-            <video id="nireBideoa" width="100%" height="auto">
-                <source src="../bideoak/kainabera.mp4" type="video/mp4">
-                Zure arakatzaileak ez du bideoa onartzen.
-            </video>
+    </main>
 
-            <div class="kontrolak">
-                <button id="playBtn" class="botoi berdea">PLAY</button>
-                <button id="pauseBtn" class="botoi horia">PAUSE</button>
-                <button id="stopBtn" class="botoi gorria">STOP</button>
-                <button id="muteBtn" class="botoi urdina">MUTE</button>
-                <div class="bolumena">
-                    <button id="volplusBtn" class="botoi zuria">VOL +</button>
-                    <button id="volminusBtn" class="botoi zuria">VOL -</button>
-                </div>
-            </div>
-        </section>
-
-       <section class="columna options-box">
-            
-                <h1>Bideo zerrenda</h1>
-            
-            
-            <div class="bideo-zerrenda-kontrola">
-                <label for="bideoHautatzailea">Aukeratu Bideoa:</label>
-                <select id="bideoHautatzailea">
-                    <option value="../bideoak/kainabera.mp4">Zelan aukeratu kainabera</option>
-                    <option value="../bideoak/arrantzalekuak.mp4">Non eta noz egin arrantza</option>
-                    <option value="../bideoak/extra.mp4">Oinarrizko korapiloak</option>
-                </select>
-            </div>
-        </section>
-
-    </div>
-</section>
-    <script src="../scripta/script.js"></script>
-
-</main>
-<footer class="footer"> 
-            <div class="brand-info">
-                <h4>🐟 PescaNova</h4>
-                <p>&copy; 2025 PescaNova.</p>
-            </div>
-	</footer>
+    <footer class="main-footer"> 
+        <div class="brand-info">
+            <h4>🐟 PescaNova</h4>
+            <p>&copy; 2025 PescaNova. Eskubide guztiak erreserbatuta.</p>
+        </div>
+    </footer>
 
 </body>
 </html>

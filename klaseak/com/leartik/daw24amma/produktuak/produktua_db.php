@@ -7,7 +7,7 @@ use PDO;
 class ProduktuaDB
 {
     
-    private static $db_path = "sqlite:C:\\xampp\\htdocs\\web_garapena_zerbitzari_ingurunean\\denda_php\\denda.db";
+    private static $db_path = "sqlite:C:/Users/lai2/Desktop/Markatzeko lenguaiak/htdocs/web_garapena_zerbitzari_ingurunean/denda_php/denda.db";
 
     
     private static function getKonexioa() {

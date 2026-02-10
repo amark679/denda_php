@@ -1,130 +1,145 @@
-
 <!DOCTYPE html>
 <html lang="eu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PescaNova</title>
+    <title>PescaNova - Arrain-denda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <header>
-        <img class="logoa" src="img/logo.png" alt="" height="100px">
+    
+    <header class="main-header">
+        <div class="logo-container">
+            <img class="logoa" src="img/logo.png" alt="PescaNova Logo">
+        </div>
         <div class="titulos-centrales"> 
             <h1>PescaNova</h1> 
             <h3>Arrain-denda</h3>       
         </div>         
-        <a href="saskia" class="zesta-link">
-			<img class="zesta" src="img/zesta.png" alt="" height="120px">
-		</a>
+        <div class="cart-container">
+            <a href="saskia" class="zesta-link">
+                <img class="zesta" src="img/zesta.png" alt="Saskia">
+                <span class="cart-text">Saskia</span>
+            </a>
+        </div>
     </header>
 
-    <nav>
-    <p><a href="" style="color:white; text-decoration:none;">Hasiera</a></p>
-    <p><a href="katalogoa/index.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
-    <p><a href="gehiago/gehiago.html" style="color:white; text-decoration:none;">Gehiago</a></p>
-    <p><a href="kontaktua/kontaktua.php" style="color:white; text-decoration:none;">Kontaktua</a></p>
-</nav>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="">Hasiera</a></li>
+            <li><a href="katalogoa/index.php">Katalogoa</a></li>
+            <li><a href="gehiago/gehiago.html">Gehiago</a></li>
+            <li><a href="kontaktua/kontaktua.php">Kontaktua</a></li>
+        </ul>
+    </nav>
 
     <main>
-        <div class="bat">
-            <img src="img/argazki1.jpg" alt="">
+        <div class="hero-banner">
+            <img src="img/argazki1.jpg" alt="Pescadería fresca">
+
         </div>
 
-        <div class="bi">
-            <section class="servicios">
-                <div class="pago">
+        <div class="features-section">
+            <div class="container">
+                <div class="feature-card">
+                    <img src="img/pago.png" alt="Pago">
                     <p>Ordainketa fidagarria</p>
-                    <img src="img/pago.png" alt="" height="50px">
                 </div>
-                <div class="envio">
+                <div class="feature-card">
+                    <img src="img/envio.png" alt="Envío">
                     <p>24/48 ordutan</p>
-                    <img src="img/envio.png" alt="" height="70px">
                 </div>
-                <div class="devolucion">
+                <div class="feature-card">
+                    <img src="img/devolucion.png" alt="Devolución">
                     <p>Itzultze erraza</p>
-                    <img src="img/devolucion.png" alt="" height="70px">
                 </div>
-                <div class="gratis">
-                    <p>Bidalketa doainak 60€ tik aurrera</p>
-                    <img src="img/gratis.png" alt="" height="70px">  
+                <div class="feature-card">
+                    <img src="img/gratis.png" alt="Gratis">
+                    <p>Bidalketa doan +60€</p>
                 </div>
-            </section>
+            </div>
         </div>
 
-        <!-- 🐟 NOBEDADEAK -->
-        <div class="hiruu">
-            <h2>Nobedadeak</h2>
-            <hr>
-            <section class="kategoriak">
+        <section class="products-section new-arrivals">
+            <div class="section-header">
+                <h2>Nobedadeak</h2>
+                <div class="separator"></div>
+            </div>
+            
+            <div class="product-grid">
                 <?php if (count($nobedadeak) > 0): ?>
                     <?php foreach ($nobedadeak as $p): ?>
-                        <div class="kategoria">
-							<img src="img/<?= htmlspecialchars($p['irudia']) ?>" alt="<?= htmlspecialchars($p['marka']) ?>" >
-                            <h3><?= htmlspecialchars($p['marka']) ?></h3>
-                            <p><?= htmlspecialchars($p['modeloa']) ?></p>
-							<p class="prezioa">Prezioa: <?= number_format($p['prezioa'], 2) ?> €</p>
-                            <hr>
-							<a href="katalogoa/index.php?action=produktua&id=<?= $p['id'] ?>">Ikusi produktua</a>		
-                        </div>
+                        <article class="product-card">
+                            <div class="img-wrapper">
+                                <img src="img/<?= htmlspecialchars($p['irudia']) ?>" alt="<?= htmlspecialchars($p['marka']) ?>" >
+                            </div>
+                            <div class="card-content">
+                                <h3><?= htmlspecialchars($p['marka']) ?></h3>
+                                <p class="model"><?= htmlspecialchars($p['modeloa']) ?></p>
+                                <p class="price"><?= number_format($p['prezioa'], 2) ?> €</p>
+                                <a href="katalogoa/index.php?action=produktua&id=<?= $p['id'] ?>" class="btn-view">Ikusi produktua</a>       
+                            </div>
+                        </article>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <p>Ez dago nobedadearik momentuz.</p>
+                    <p class="empty-msg">Ez dago nobedadearik momentuz.</p>
                 <?php endif; ?>
-            </section>
-        </div>
-
-        <!-- 💸 ESKAINTZAK -->
-      
-<div class="hiru">
-    <h2>Eskaintzak</h2>
-    <hr>
-    <section class="kategoriak">
-        <?php if (count($deskontuak) > 0): ?>
-            <?php foreach ($deskontuak as $p): ?>
-			<div class="kategoria">
-				<img src="img/<?= htmlspecialchars($p['irudia']) ?>" alt="<?= htmlspecialchars($p['marka']) ?>">
-				<h3><?= htmlspecialchars($p['marka']) ?></h3>
-				<p><?= htmlspecialchars($p['modeloa']) ?></p>
-
-				<?php 
-					// Float bihurtu eta amaierako prezioa kalkulatu
-					$prezioa = floatval($p['prezioa']);
-					$desk = floatval($p['deskontuak']);
-					$finala = round($prezioa * (1 - $desk), 2);
-				?>
-
-				<?php if ($desk > 0): ?>
-					<p class="viejo" style="text-decoration: line-through;">
-						<?= number_format($prezioa, 2) ?> €
-					</p>
-					<p class="nuevo" style="color:red; font-weight:bold;">
-						<?= number_format($finala, 2) ?> €
-					</p>
-					<p class="deskontua" style="background-color: #28a745; color: white; padding: 2px 0px; border-radius: 5px; width:40%; margin-top:5px;"><?= number_format($desk * 100, 0) ?>% deskontua</p>
-				<?php else: ?>
-					<p><?= number_format($prezioa, 2) ?> €</p>
-				<?php endif; ?>
-                <hr>
-                <a href="katalogoa/index.php?action=produktua&id=<?= $p['id'] ?>">Ikusi produktua</a>
-			</div>
-		<?php endforeach; ?>
-        <?php else: ?>
-            <p>Ez dago eskaintzarik momentuz.</p>
-        <?php endif; ?>
-    </section>
-</div>
-    </main>
-	
-	<footer class="footer"> 
-            <div class="brand-info">
-                <h4>🐟 PescaNova</h4>
-                <p>&copy; 2025 PescaNova.</p>
             </div>
-	</footer>
+        </section>
+
+        <section class="products-section offers">
+            <div class="section-header">
+                <h2>Eskaintzak</h2>
+                <div class="separator"></div>
+            </div>
+
+            <div class="product-grid">
+                <?php if (count($deskontuak) > 0): ?>
+                    <?php foreach ($deskontuak as $p): ?>
+                    <article class="product-card offer-card">
+                        <div class="img-wrapper">
+                            <img src="img/<?= htmlspecialchars($p['irudia']) ?>" alt="<?= htmlspecialchars($p['marka']) ?>">
+                        </div>
+                        <div class="card-content">
+                            <h3><?= htmlspecialchars($p['marka']) ?></h3>
+                            <p class="model"><?= htmlspecialchars($p['modeloa']) ?></p>
+
+                            <?php 
+                                $prezioa = floatval($p['prezioa']);
+                                $desk = floatval($p['deskontuak']);
+                                $finala = round($prezioa * (1 - $desk), 2);
+                            ?>
+
+                            <?php if ($desk > 0): ?>
+                                <div class="price-container">
+                                    <span class="old-price"><?= number_format($prezioa, 2) ?> €</span>
+                                    <span class="new-price"><?= number_format($finala, 2) ?> €</span>
+                                </div>
+                                <div class="discount-badge">-<?= number_format($desk * 100, 0) ?>%</div>
+                            <?php else: ?>
+                                <p class="price"><?= number_format($prezioa, 2) ?> €</p>
+                            <?php endif; ?>
+                            
+                            <a href="katalogoa/index.php?action=produktua&id=<?= $p['id'] ?>" class="btn-view">Ikusi produktua</a>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+                <?php else: ?>
+                    <p class="empty-msg">Ez dago eskaintzarik momentuz.</p>
+                <?php endif; ?>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="main-footer"> 
+        <div class="brand-info">
+            <h4>🐟 PescaNova</h4>
+            <p>&copy; 2025 Eskubide guztiak erreserbatuta.</p>
+        </div>
+    </footer>
 </body>
 </html>
-
-
-
-

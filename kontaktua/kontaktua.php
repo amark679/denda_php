@@ -2,7 +2,7 @@
 if (!isset($errorea)) { 
         $errorea = ""; 
     }
-	
+    
 $feedback = ""; 
 
 
@@ -21,32 +21,46 @@ if (isset($_GET['egoera'])) {
 <html lang="eu">
 <head>
     <meta charset="UTF-8">
-	<link rel="stylesheet" href="../css/kontaktua.css">
-	
-</head>
+    <title>Kontaktua - PescaNova</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/index.css">      <link rel="stylesheet" href="../css/kontaktua.css">  </head>
 <body>
-	<header>
-        <a href=".."><img class="logoa" src="../img/logo.png" alt="" height="100px"></a>
+    
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="..">
+                <img class="logoa" src="../img/logo.png" alt="PescaNova Logo">
+            </a>
+        </div>
         <div class="titulos-centrales"> 
             <h1>PescaNova</h1> 
             <h3>Arrain-denda</h3>       
-        </div>         
-        <a href="../saskia/index.php" class="zesta-link"><img class="zesta" src="../img/zesta.png" alt="" height="120px"></a>
+        </div>          
+        <div class="cart-container">
+            <a href="../saskia/index.php" class="zesta-link">
+                <img class="zesta" src="../img/zesta.png" alt="Saskia">
+                <span class="cart-text">Saskia</span>
+            </a>
+        </div>
     </header>
 
-    <nav>
-    <p><a href=".." style="color:white; text-decoration:none;">Hasiera</a></p>
-    <p><a href="../katalogoa/index.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
-    <p><a href="../gehiago/gehiago.html" style="color:white; text-decoration:none;">Gehiago</a></p>
-    <p><a href="../kontaktua/kontaktua.php" style="color:white; text-decoration:none;">Kontaktua</a></p>
-</nav>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="..">Hasiera</a></li>
+            <li><a href="../katalogoa/index.php">Katalogoa</a></li>
+            <li><a href="../gehiago/gehiago.html">Gehiago</a></li>
+            <li><a href="../kontaktua/kontaktua.php" class="active">Kontaktua</a></li>
+        </ul>
+    </nav>
 
 
-<hr>
-
-<main>
-		<h2 style="text-align: center">Kontaktua</h2>
-		<hr>
+    <main>
+        <h2 style="text-align: center; margin-top: 20px;">Kontaktua</h2>
+        <hr>
         <div class="kontaktu-container">
             
             <div class="info-box">
@@ -80,14 +94,14 @@ if (isset($_GET['egoera'])) {
             </div>
 
             <div class="form-box">
-			
-			<?php echo $feedback; ?>
-			<?php if (!empty($errorea)): ?>
-				<div style='color: white; background-color: orange; padding: 10px;'>
-					<?php echo $errorea; ?>
-				</div>
-			<?php endif; ?>
-						
+            
+            <?php echo $feedback; ?>
+            <?php if (!empty($errorea)): ?>
+                <div style='color: white; background-color: orange; padding: 10px;'>
+                    <?php echo $errorea; ?>
+                </div>
+            <?php endif; ?>
+                        
                 <h2>Bidaliguzu mezu bat</h2>
                 <form action="mezua_gorde.php" method="POST">
                     <div class="form-group">
@@ -99,7 +113,7 @@ if (isset($_GET['egoera'])) {
                         <label for="emaila">Posta Elektronikoa:</label>
                         <input type="email" id="emaila" name="emaila" placeholder="adibidea@email.com">
                     </div>
-					
+                    
                     <div class="form-group">
                         <label for="mezua">Mezua:</label>
                         <textarea id="mezua" name="mezua" rows="5" placeholder="Idatzi hemen zure galdera..."></textarea>
@@ -112,12 +126,12 @@ if (isset($_GET['egoera'])) {
         </div>
     </main>
 
-<footer class="footer"> 
-            <div class="brand-info">
-                <h4>🐟 PescaNova</h4>
-                <p>&copy; 2025 PescaNova.</p>
-            </div>
-	</footer>
+    <footer class="main-footer"> 
+        <div class="brand-info">
+            <h4>🐟 PescaNova</h4>
+            <p>&copy; 2025 PescaNova. Eskubide guztiak erreserbatuta.</p>
+        </div>
+    </footer>
 
 </body>
 </html>

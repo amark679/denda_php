@@ -25,7 +25,12 @@ $bezeroa = $eskaria->getBezeroa();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PescaNova</title>
+    <title>Eskerrik asko - PescaNova</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="../css/index.css">
   
     <style>
@@ -59,18 +64,32 @@ $bezeroa = $eskaria->getBezeroa();
     </style>
 </head>
 <body>
-    <header>
-        <a href=".."><img class="logoa" src="../img/logo.png" alt="" height="100px"></a>
+    
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="..">
+                <img class="logoa" src="../img/logo.png" alt="PescaNova Logo">
+            </a>
+        </div>
         <div class="titulos-centrales"> 
-            <h1>PescaNova</h1>      
-        </div>         
+            <h1>PescaNova</h1> 
+            <h3>Arrain-denda</h3>       
+        </div>          
+        <div class="cart-container">
+            <a href="index.php" class="zesta-link">
+                <img class="zesta" src="../img/zesta.png" alt="Saskia">
+                <span class="cart-text">Saskia</span>
+            </a>
+        </div>
     </header>
 
-      <nav>
-        <p><a href="index.php" style="color:white; text-decoration:none;">Hasiera</a></p>
-        <p><a href="../katalogoa/katalogoa.php" style="color:white; text-decoration:none;">Katalogoa</a></p>
-        <p><a href="../gehiago/gehiago.html" style="color:white; text-decoration:none;">Gehiago</a></p>
-        <p><a href="../kontaktua/kontaktua.php" style="color:white; text-decoration:none;">Kontaktua</a></p>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="..">Hasiera</a></li>
+            <li><a href="../katalogoa/index.php">Katalogoa</a></li>
+            <li><a href="../gehiago/gehiago.html">Gehiago</a></li>
+            <li><a href="../kontaktua/kontaktua.php">Kontaktua</a></li>
+        </ul>
     </nav>
 
     <main>
@@ -93,10 +112,10 @@ $bezeroa = $eskaria->getBezeroa();
         </div>
     </main>
 
-    <footer class="footer"> 
+    <footer class="main-footer"> 
         <div class="brand-info">
             <h4>🐟 PescaNova</h4>
-            <p>&copy; 2025 PescaNova.</p>
+            <p>&copy; 2025 PescaNova. Eskubide guztiak erreserbatuta.</p>
         </div>
     </footer>
 </body>
