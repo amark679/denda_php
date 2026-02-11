@@ -1,0 +1,31 @@
+ .filtro-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+
+        #buscador-categoria {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #buscador-categoria:focus {
+            border-color: #0e4b5b; /* Tu color primario */
+        }
+        
+        /* Ajuste para mensaje de no resultados */
+        #sin-resultados {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #666;
+            width: 100%;
+            display: none; /* Oculto por defecto */
+        }

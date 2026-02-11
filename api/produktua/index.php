@@ -1,6 +1,6 @@
 <?php
 
-	$db_path = 'C:\Users\lai2\Desktop\Markatzeko lenguaiak\htdocs\web_garapena_zerbitzari_ingurunean\zerbitzari_erronka_proba\denda.db';
+	$db_path = 'C:\Users\lai2\Desktop\Markatzeko lenguaiak\htdocs\web_garapena_zerbitzari_ingurunean\denda_php\denda.db';
 
 
 try {

@@ -33,6 +33,7 @@
             <li><a href="katalogoa/index.php">Katalogoa</a></li>
             <li><a href="gehiago/gehiago.html">Gehiago</a></li>
             <li><a href="kontaktua/kontaktua.php">Kontaktua</a></li>
+            <li><a href="produktuak/index.php">Produktuak</a></li>
         </ul>
     </nav>
 

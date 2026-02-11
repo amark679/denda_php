@@ -5,7 +5,7 @@ require_once('klaseak/com/leartik/daw24amma/produktuak/produktua_db.php'); // Cl
 use com\leartik\daw24amma\produktuak\ProduktuaDB;
 
 
-$api_base = "http://localhost/web_garapena_zerbitzari_ingurunean/zerbitzari_erronka_proba/api/produktua";
+$api_base = "http://localhost/web_garapena_zerbitzari_ingurunean/denda_php/api/produktua";
 
 // Nobedadeak
 $json_nobedadeak = file_get_contents("$api_base/?mota=nobedadeak");
