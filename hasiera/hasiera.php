@@ -34,6 +34,7 @@
             <li><a href="gehiago/gehiago.html">Gehiago</a></li>
             <li><a href="kontaktua/kontaktua.php">Kontaktua</a></li>
             <li><a href="produktuak/index.php">Produktuak</a></li>
+            <li><a href="albisteak/index.php">Albisteak</a></li>
         </ul>
     </nav>
 
